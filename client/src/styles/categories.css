@@ -1,0 +1,30 @@
+/* .categories{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.category-list{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.category-list button{
+    padding:12px 24px;
+    border:none;
+    border-radius:30px;
+    background:#ff6600;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.category-list button:hover{
+    background:#e65100;
+}
+
+
+ */

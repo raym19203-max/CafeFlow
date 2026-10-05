@@ -1,0 +1,1018 @@
+/* ==========================================
+   HOME HERO
+========================================== */
+
+.hero-section {
+  width: 100%;
+  min-height: 600px;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4");
+
+  background-size: cover;
+  background-position: center;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+
+/* ==========================================
+   OVERLAY
+========================================== */
+
+.hero-overlay {
+  width: 100%;
+  min-height: 600px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.72),
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.15)
+    );
+
+  display: flex;
+  align-items: center;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.hero-content {
+  max-width: 650px;
+
+  margin-left: 8%;
+
+  padding: 40px 20px;
+
+  color: white;
+}
+
+
+/* ==========================================
+   SMALL TITLE
+========================================== */
+
+.hero-small-title {
+  margin: 0 0 15px;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #ff6500;
+}
+
+
+/* ==========================================
+   MAIN TITLE
+========================================== */
+
+.hero-content h1 {
+  margin: 0;
+
+  font-size: 58px;
+
+  line-height: 1.1;
+
+  font-weight: 800;
+
+  color: white;
+}
+
+
+/* ==========================================
+   ORANGE TEXT
+========================================== */
+
+.hero-content h1 span {
+  color: #ff6500;
+}
+
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.hero-description {
+  max-width: 520px;
+
+  margin-top: 20px;
+
+  font-size: 18px;
+
+  line-height: 1.6;
+
+  color: #f5f5f5;
+}
+
+
+/* ==========================================
+   VIEW MENU BUTTON
+========================================== */
+
+.hero-menu-btn {
+  display: inline-block;
+
+  margin-top: 28px;
+
+  padding: 14px 30px;
+
+  background: #ff6500;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 30px;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  transition: 0.3s ease;
+}
+
+
+.hero-menu-btn:hover {
+  background: #e85b00;
+
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .hero-section,
+  .hero-overlay {
+    min-height: 500px;
+  }
+
+
+  .hero-content {
+    margin-left: 0;
+
+    padding: 30px;
+  }
+
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .hero-section,
+  .hero-overlay {
+    min-height: 450px;
+  }
+
+
+  .hero-content {
+    padding: 25px;
+  }
+
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+
+  .hero-small-title {
+    font-size: 12px;
+  }
+
+}
+
+
+
+/* ==========================================
+   SECOND HOME SECTION
+========================================== */
+
+.home-story-section {
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 90px 7%;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 70px;
+
+  align-items: center;
+
+  background: #fff;
+}
+
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.home-story-image {
+  width: 100%;
+
+  height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+.home-story-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: 0.4s ease;
+}
+
+
+.home-story-image:hover img {
+  transform: scale(1.04);
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.home-story-content {
+  padding: 20px 0;
+}
+
+
+/* ==========================================
+   SMALL TITLE
+========================================== */
+
+.story-small-title {
+  margin: 0 0 12px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  color: #ff6500;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.home-story-content h2 {
+  margin: 0 0 20px;
+
+  font-size: 42px;
+
+  line-height: 1.15;
+
+  color: #17324d;
+
+  font-weight: 800;
+}
+
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.home-story-content p:not(.story-small-title) {
+  margin: 0 0 18px;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.story-btn {
+  margin-top: 10px;
+
+  padding: 14px 28px;
+
+  border: none;
+
+  border-radius: 30px;
+
+  background: #ff6500;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+
+.story-btn:hover {
+  background: #e85b00;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .home-story-section {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 60px 6%;
+  }
+
+
+  .home-story-image {
+    height: 320px;
+  }
+
+
+  .home-story-content h2 {
+    font-size: 34px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .home-story-section {
+    padding: 45px 5%;
+  }
+
+
+  .home-story-image {
+    height: 260px;
+  }
+
+
+  .home-story-content h2 {
+    font-size: 30px;
+  }
+
+
+  .home-story-content p:not(.story-small-title) {
+    font-size: 15px;
+  }
+
+}
+
+
+
+
+
+
+/* ==========================================
+   ONO CAFE REVIEW SECTION
+========================================== */
+
+.review-section {
+  width: 100%;
+  padding: 70px 7%;
+  background: #fffaf0;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.review-heading {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.review-heading h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #263238;
+}
+
+.review-heading p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+.review-container {
+  max-width: 1200px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: white;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==========================================
+   MAP
+========================================== */
+
+.review-map {
+  width: 100%;
+  min-height: 520px;
+}
+
+.review-map iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+
+  border: none;
+
+  display: block;
+}
+
+
+/* ==========================================
+   REVIEW CARD
+========================================== */
+
+.review-card {
+  padding: 45px 40px;
+  background: white;
+}
+
+.review-card h2 {
+  font-size: 30px;
+  color: #263238;
+  margin-bottom: 10px;
+}
+
+.review-intro {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   REVIEW STEPS
+========================================== */
+
+.review-step {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.step-number {
+  min-width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ff7a00;
+
+  color: white;
+
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.review-step h3 {
+  margin: 0 0 5px;
+
+  font-size: 17px;
+
+  color: #263238;
+}
+
+.review-step p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   GOOGLE REVIEW BUTTON
+========================================== */
+
+.google-review-btn {
+  display: block;
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  background: #ff7a00;
+
+  color: white;
+
+  padding: 15px 20px;
+
+  border-radius: 8px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  margin-top: 30px;
+
+  transition: 0.3s;
+}
+
+.google-review-btn:hover {
+  background: #e96500;
+  transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   BOTTOM NOTE
+========================================== */
+
+.review-note {
+  text-align: center;
+
+  margin-top: 18px;
+
+  color: #888;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .review-section {
+    padding: 50px 20px;
+  }
+
+  .review-heading h2 {
+    font-size: 28px;
+  }
+
+  .review-heading p {
+    font-size: 15px;
+  }
+
+  .review-container {
+    grid-template-columns: 1fr;
+  }
+
+  .review-map {
+    min-height: 350px;
+  }
+
+  .review-map iframe {
+    min-height: 350px;
+  }
+
+  .review-card {
+    padding: 30px 25px;
+  }
+
+  .review-card h2 {
+    font-size: 25px;
+  }
+
+}
+
+
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+  width: 100%;
+  background: #fff7f2;
+  color: #333;
+  margin-top: 70px;
+  border-top: 1px solid #eee;
+}
+
+
+/* ==========================================
+   FOOTER CONTAINER
+========================================== */
+
+.footer-container {
+  width: 90%;
+  max-width: 1200px;
+
+  margin: auto;
+  padding: 60px 0 45px;
+
+  display: grid;
+
+  grid-template-columns:
+    1.4fr
+    1fr
+    1.4fr
+    1fr;
+
+  gap: 50px;
+}
+
+
+/* ==========================================
+   FOOTER COLUMNS
+========================================== */
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+/* ==========================================
+   CAFE LOGO
+========================================== */
+
+.footer-logo {
+  margin: 0 0 15px;
+
+  color: #ff5722;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+.footer-column h3 {
+  margin: 0 0 18px;
+
+  color: #ff5722;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   TEXT
+========================================== */
+
+.footer-column p {
+  margin: 0 0 10px;
+
+  color: #666;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* ==========================================
+   CONTACT ITEMS
+========================================== */
+
+.contact-item {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 12px !important;
+}
+
+
+/* ==========================================
+   CONTACT SVG ICONS
+========================================== */
+
+.contact-item svg {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  color: #ff5722;
+}
+
+
+/* ==========================================
+   QUICK LINKS
+========================================== */
+
+.footer-column ul {
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: 10px;
+}
+
+.footer-column li a {
+  text-decoration: none;
+
+  color: #555;
+
+  font-size: 15px;
+
+  transition: all 0.3s ease;
+}
+
+.footer-column li a:hover {
+  color: #ff5722;
+
+  padding-left: 5px;
+}
+
+
+/* ==========================================
+   SOCIAL LINKS
+========================================== */
+
+.social-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-top: 12px;
+}
+
+
+/* ==========================================
+   SOCIAL ICON
+========================================== */
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #ff5722;
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 0;
+  margin: 0;
+
+  transition: all 0.3s ease;
+}
+
+
+/* ==========================================
+   SOCIAL SVG
+========================================== */
+
+.social-icon svg {
+  width: 21px;
+  height: 21px;
+
+  display: block;
+}
+
+
+/* ==========================================
+   INSTAGRAM HOVER
+========================================== */
+
+.social-icon[aria-label="Instagram"]:hover {
+  background: #e1306c;
+
+  transform: translateY(-4px);
+}
+
+
+/* ==========================================
+   FACEBOOK HOVER
+========================================== */
+
+.social-icon[aria-label="Facebook"]:hover {
+  background: #1877f2;
+
+  transform: translateY(-4px);
+}
+
+
+/* ==========================================
+   TIKTOK HOVER
+========================================== */
+
+.social-icon[aria-label="TikTok"]:hover {
+  background: #000;
+
+  transform: translateY(-4px);
+}
+
+
+/* ==========================================
+   FOOTER BOTTOM
+========================================== */
+
+.footer-bottom {
+  width: 90%;
+  max-width: 1200px;
+
+  margin: auto;
+
+  padding: 20px 0;
+
+  border-top: 1px solid #eadfd8;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+  .footer {
+    margin-top: 50px;
+  }
+
+  .footer-container {
+    width: 88%;
+
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 45px 0 35px;
+  }
+
+  .footer-column {
+    align-items: flex-start;
+  }
+
+  .footer-logo {
+    font-size: 25px;
+  }
+
+  .footer-column h3 {
+    font-size: 18px;
+  }
+
+  .footer-column p {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    width: 88%;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 20px 0;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+}
+
+
+
+
+
+
+

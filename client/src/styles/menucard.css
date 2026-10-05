@@ -1,0 +1,55 @@
+.menu-card{
+    width:250px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+    background:#fff;
+}
+
+.menu-card:hover{
+    transform:translateY(-5px);
+}
+
+.menu-card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.menu-card h3{
+    margin:10px 0;
+}
+
+.menu-card p{
+    color:#ff6600;
+    font-weight:bold;
+}
+
+.menu-card button{
+    background:#ff6600;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+
+
+.menu-title{
+    text-align:center;
+    margin:50px 0 30px;
+    font-size:35px;
+}
+
+.menu-grid{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}

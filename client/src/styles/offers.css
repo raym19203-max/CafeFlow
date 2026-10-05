@@ -1,0 +1,449 @@
+/* ==========================================
+   OFFERS PAGE
+========================================== */
+
+.offers-page {
+  min-height: 100vh;
+  background: #f7f8fa;
+  padding: 45px 6%;
+  box-sizing: border-box;
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.offers-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.offers-header h1 {
+  display: inline-block;
+  margin: 0 12px;
+  font-size: 38px;
+  font-weight: 800;
+  color: #ff5a00;
+}
+
+.offer-line {
+  font-size: 28px;
+}
+
+.offers-header p {
+  margin-top: 8px;
+  font-size: 17px;
+  color: #777;
+}
+
+
+/* ==========================================
+   OFFER BANNER
+========================================== */
+
+.offer-banner {
+  max-width: 1150px;
+  margin: 0 auto 35px;
+
+  padding: 22px 30px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #fff1e8,
+    #fff8f2
+  );
+
+  border: 1px solid #ffd9c2;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+.banner-badge {
+  display: inline-block;
+
+  padding: 6px 13px;
+
+  background: #ff6500;
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.offer-banner h2 {
+  margin: 8px 0 4px;
+
+  font-size: 28px;
+
+  color: #17324d;
+}
+
+.offer-banner p {
+  margin: 0;
+
+  color: #777;
+}
+
+.banner-icon {
+  font-size: 65px;
+}
+
+
+/* ==========================================
+   PRODUCT GRID
+========================================== */
+
+.offer-grid {
+
+  max-width: 1150px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 22px;
+
+}
+
+
+/* ==========================================
+   OFFER CARD
+========================================== */
+
+.offer-card {
+
+  position: relative;
+
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  border: 1px solid #eeeeee;
+
+  box-shadow:
+    0 4px 14px
+    rgba(0, 0, 0, 0.08);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+}
+
+.offer-card:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 8px 22px
+    rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* ==========================================
+   HOT BADGE
+========================================== */
+
+.offer-badge {
+
+  position: absolute;
+
+  top: 12px;
+  right: 12px;
+
+  z-index: 5;
+
+  background: #ff4b2b;
+
+  color: white;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+}
+
+
+/* ==========================================
+   DISCOUNT BADGE
+========================================== */
+
+.discount-badge {
+
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  z-index: 5;
+
+  background: #fff;
+
+  color: #ff6500;
+
+  padding: 6px 9px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 2px 8px
+    rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.offer-image {
+
+  width: 100%;
+  height: 190px;
+
+  overflow: hidden;
+
+  background: #f1f1f1;
+
+}
+
+.offer-image img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition:
+    transform 0.3s ease;
+
+}
+
+.offer-card:hover
+.offer-image img {
+
+  transform: scale(1.04);
+
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.offer-content {
+
+  padding: 15px;
+
+}
+
+.offer-content h3 {
+
+  margin: 0 0 7px;
+
+  font-size: 18px;
+
+  color: #17324d;
+
+}
+
+
+.offer-description {
+
+  margin: 0 0 12px;
+
+  font-size: 13px;
+
+  color: #888;
+
+}
+
+
+/* ==========================================
+   PRICE
+========================================== */
+
+.offer-price {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+}
+
+.old-price {
+
+  color: #999;
+
+  text-decoration: line-through;
+
+  font-size: 14px;
+
+}
+
+.new-price {
+
+  color: #ff5a00;
+
+  font-size: 19px;
+
+  font-weight: 800;
+
+}
+
+
+/* ==========================================
+   ADD TO CART
+========================================== */
+
+.offer-cart-btn {
+
+  width: 100%;
+
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #ff6500;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+}
+
+.offer-cart-btn:hover {
+
+  background: #e95600;
+
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+
+  .offer-grid {
+
+    grid-template-columns:
+      repeat(3, 1fr);
+
+  }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .offers-page {
+
+    padding: 30px 5%;
+
+  }
+
+  .offers-header h1 {
+
+    font-size: 30px;
+
+  }
+
+  .offer-banner {
+
+    padding: 18px;
+
+  }
+
+  .banner-icon {
+
+    font-size: 45px;
+
+  }
+
+  .offer-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 14px;
+
+  }
+
+  .offer-image {
+
+    height: 150px;
+
+  }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+  .offer-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .offer-banner {
+
+    display: block;
+
+    text-align: center;
+
+  }
+
+  .banner-icon {
+
+    margin-top: 10px;
+
+  }
+
+}

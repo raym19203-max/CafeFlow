@@ -1,0 +1,591 @@
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: 400px;
+  max-width: 90vw;
+  height: 100vh;
+
+  background: #ffffff;
+
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+
+  padding: 20px;
+
+  overflow-y: auto;
+
+  z-index: 2000;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CART HEADER
+========================================================= */
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.cart-header h2 {
+  margin: 0;
+}
+
+
+.close-btn {
+  background: none;
+  border: none;
+
+  font-size: 28px;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   CART ITEM
+========================================================= */
+
+.cart-item {
+  margin-bottom: 20px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.cart-item h4 {
+  margin: 0 0 8px;
+
+  font-size: 18px;
+}
+
+.cart-item p {
+  color: #ff6600;
+
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.quantity-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin: 10px 0;
+}
+
+.quantity-box button {
+  width: 30px;
+  height: 30px;
+
+  border: none;
+
+  background: #ff6600;
+
+  color: #ffffff;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+.quantity-box span {
+  font-size: 18px;
+
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   REMOVE BUTTON
+========================================================= */
+
+.remove-btn {
+  background: #ff4d4d;
+
+  color: #ffffff;
+
+  border: none;
+
+  font-size: 14px;
+
+  padding: 6px 12px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background: #e63e3e;
+}
+
+
+/* =========================================================
+   CHECKOUT SECTION
+========================================================= */
+
+.checkout-section {
+  position: sticky;
+
+  bottom: 0;
+
+  background: #ffffff;
+
+  padding: 15px 0;
+
+  margin-top: 20px;
+
+  border-top: 1px solid #dddddd;
+}
+
+.total {
+  font-size: 22px;
+
+  font-weight: bold;
+
+  margin: 20px 0;
+}
+
+
+/* =========================================================
+   CHECKOUT BUTTON
+========================================================= */
+
+.checkout-btn {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  background: #ff6600;
+
+  color: #ffffff;
+
+  border-radius: 8px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background: #e65c00;
+}
+
+
+/* =========================================================
+   MENU PAGE
+========================================================= */
+
+.menu-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #f4f4f4;
+
+  padding: 50px 0 60px;
+
+  box-sizing: border-box;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MENU TITLE
+========================================================= */
+
+.menu-titles {
+  width: 82%;
+
+  max-width: 1120px;
+
+  margin: 0 auto 30px;
+
+  font-size: 36px;
+
+  font-weight: 700;
+
+  color: #2e5d50;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+========================================================= */
+
+.search-box {
+  width: 82%;
+
+  max-width: 1120px;
+
+  height: 52px;
+
+  margin: 0 auto 25px;
+
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #ffffff;
+
+  border: 1px solid #dddddd;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Search Icon */
+
+.search-box span {
+  font-size: 22px;
+
+  flex-shrink: 0;
+}
+
+
+/* Search Input */
+
+.search-box input {
+  width: 100%;
+
+  height: 100%;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 17px;
+
+  color: #333333;
+
+  box-sizing: border-box;
+}
+
+
+/* Placeholder */
+
+.search-box input::placeholder {
+  color: #777777;
+}
+
+
+/* =========================================================
+   CATEGORY LIST
+========================================================= */
+
+.category-list {
+  width: 82%;
+
+  max-width: 1120px;
+
+  margin: 0 auto 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-start;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CATEGORY BUTTON
+========================================================= */
+
+.category-btn {
+  padding: 8px 16px;
+
+  border: 1px solid #2e5d50;;
+
+  border-radius: 25px;
+
+  background: white;
+  color: #333333;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+}
+
+
+/* Hover */
+
+.category-btn:hover {
+  /* background: #ff6500; */
+
+  background: rgb(192, 197, 192);
+
+  color: #ffffff;
+
+  border-color: #2e5d50;;
+}
+
+
+/* Active */
+
+.category-btn.active {
+  /* background: #ff6500; */
+
+  color: #ffffff;
+
+  border-color: #2e5d50;
+  /* background: rgb(122, 216, 122); */
+  background:  #2e5d50;
+
+}
+
+
+/* =========================================================
+   MENU GRID
+========================================================= */
+
+.menu-grid {
+  width: 82%;
+
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.no-results {
+  width: 100%;
+
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  font-size: 20px;
+
+  color: #777777;
+
+  padding: 40px 0;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+  }
+
+  .category-list {
+    gap: 8px;
+  }
+
+  .category-btn {
+    padding: 7px 14px;
+
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   HALF SCREEN / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .menu-titles {
+    width: 82%;
+
+    font-size: 32px;
+  }
+
+  .search-box {
+    width: 82%;
+  }
+
+  .category-list {
+    width: 82%;
+
+    gap: 8px;
+  }
+
+  .category-btn {
+    padding: 7px 13px;
+
+    font-size: 13px;
+  }
+
+  .menu-grid {
+    width: 82%;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .menu-page {
+    padding: 35px 0 50px;
+  }
+
+
+  .menu-titles {
+    width: 90%;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
+  }
+
+
+  .search-box {
+    width: 90%;
+
+    height: 50px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .category-list {
+    width: 90%;
+
+    gap: 8px;
+
+    margin-bottom: 30px;
+  }
+
+
+  .category-btn {
+    padding: 7px 12px;
+
+    font-size: 13px;
+  }
+
+
+  .menu-grid {
+    width: 90%;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+  }
+
+
+  .cart-drawer {
+    width: 100%;
+
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+
+  .menu-titles {
+    font-size: 28px;
+  }
+
+
+  .category-list {
+    width: 90%;
+
+    gap: 7px;
+  }
+
+
+  .category-btn {
+    padding: 7px 11px;
+
+    font-size: 12px;
+  }
+
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   PREVENT HORIZONTAL SCROLL
+========================================================= */
+
+html,
+body {
+  max-width: 100%;
+
+  overflow-x: hidden;
+}
