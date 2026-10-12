@@ -53,3 +53,105 @@
     grid-template-columns:repeat(4,1fr);
     gap:25px;
 }
+
+
+
+
+.menu-card-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-card-image.image-error::after {
+  content: "Image unavailable";
+  color: #777;
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   CART BOX
+========================= */
+
+.cart-section {
+  position: fixed;
+  right: 20px;
+  top: 100px;
+  width: 320px;
+  max-height: 75vh;
+  overflow-y: auto;
+
+  background: white;
+  padding: 20px;
+
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+
+  z-index: 1000;
+}
+
+.cart-section h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item span:first-child {
+  flex: 1;
+  font-weight: 600;
+}
+
+.cart-item button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.cart-section > button {
+  margin-top: 20px;
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #ff6b35;
+  color: white;
+
+  cursor: pointer;
+  font-weight: bold;
+}

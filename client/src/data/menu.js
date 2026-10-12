@@ -1,22 +1,33 @@
 const menu = [
+  // =====================
+  // FOOD - PIZZA
+  // =====================
   {
     id: 1,
     name: "Margherita Pizza",
     price: 450,
-    category: "Pizza",
-    subcategory: "Veg Pizza",
+    category: "Food",
+    subcategory: "Pizza",
+    type: "Veg",
     image: "https://picsum.photos/250?1"
   },
 
+  // =====================
+  // FOOD - BURGER
+  // =====================
   {
     id: 2,
     name: "Chicken Burger",
     price: 280,
-    category: "Burger",
-    subcategory: "Chicken Burger",
+    category: "Food",
+    subcategory: "Burger",
+    type: "Non-Veg",
     image: "https://picsum.photos/250?2"
   },
 
+  // =====================
+  // COFFEE / TEA
+  // =====================
   {
     id: 3,
     name: "Cappuccino",
@@ -25,7 +36,6 @@ const menu = [
     subcategory: "Hot Coffee",
     image: "https://picsum.photos/250?3"
   },
-
   {
     id: 4,
     name: "Cold Coffee",
@@ -35,6 +45,9 @@ const menu = [
     image: "https://picsum.photos/250?4"
   },
 
+  // =====================
+  // SNACKS
+  // =====================
   {
     id: 5,
     name: "French Fries",
@@ -44,6 +57,9 @@ const menu = [
     image: "https://picsum.photos/250?5"
   },
 
+  // =====================
+  // DRINKS
+  // =====================
   {
     id: 6,
     name: "Mojito",
@@ -54,42 +70,42 @@ const menu = [
   },
 
   // =====================
-  // MOMO
+  // FOOD - MOMO
   // =====================
-
   {
     id: 7,
     name: "Veg Momo",
     price: 150,
-    category: "Momo",
-    subcategory: "Veg Momo",
+    category: "Food",
+    subcategory: "Momo",
+    type: "Veg",
     image: "https://picsum.photos/250?7"
   },
-
   {
     id: 8,
     name: "Fried Momo",
     price: 170,
-    category: "Momo",
-    subcategory: "Fried Momo",
+    category: "Food",
+    subcategory: "Momo",
+    type: "Veg",
     image: "https://picsum.photos/250?8"
   },
-
   {
     id: 9,
     name: "Chicken Momo",
     price: 190,
-    category: "Momo",
-    subcategory: "Chicken Momo",
+    category: "Food",
+    subcategory: "Momo",
+    type: "Non-Veg",
     image: "https://picsum.photos/250?9"
   },
-
   {
     id: 10,
     name: "Mutton Momo",
     price: 220,
-    category: "Momo",
-    subcategory: "Mutton Momo",
+    category: "Food",
+    subcategory: "Momo",
+    type: "Non-Veg",
     image: "https://picsum.photos/250?10"
   }
 ];

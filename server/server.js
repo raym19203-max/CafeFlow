@@ -48,6 +48,16 @@ const io = new Server(server, {
 });
 
 
+// const io = new Server(server, {
+//   cors: {
+//     origin: ["http://localhost:5173", "http://localhost:5174"],
+//     methods: ["GET", "POST", "PUT"],
+//     credentials: true,
+//   },
+// });
+
+
+
 // ==========================================
 // Socket Connection
 // ==========================================
@@ -811,6 +821,186 @@ app.get("/api/esewa/verify", async (req, res) => {
 
   }
 
+});
+
+
+
+
+
+ // GET ALL PRODUCTS
+app.get("/api/products", (req, res) => {
+  const sql = "SELECT * FROM products ORDER BY id DESC";
+
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.log("Products Error:", err);
+      return res.status(500).json({
+        message: "Could not load products"
+      });
+    }
+
+    res.json(results);
+  });
+});
+
+
+
+
+
+
+ // ADD NEW PRODUCT
+app.post("/api/products", (req, res) => {
+  const {
+    name,
+    category,
+    subcategory,
+    price,
+    image,
+    availability
+  } = req.body;
+
+  if (!name || !category || price === undefined || Number(price) < 0) {
+    return res.status(400).json({
+      message: "Name, category and a valid price are required"
+    });
+  }
+
+  const sql = `
+    INSERT INTO products
+    (name, category, subcategory, price, image, availability)
+    VALUES (?, ?, ?, ?, ?, ?)
+  `;
+
+  db.query(
+    sql,
+    [
+      name,
+      category,
+      subcategory || "",
+      Number(price),
+      image || "",
+      availability || "Available"
+    ],
+    (err, result) => {
+      if (err) {
+        console.log("Add Product Error:", err);
+        return res.status(500).json({
+          message: "Could not add product"
+        });
+      }
+
+      res.status(201).json({
+        message: "Product added successfully",
+        id: result.insertId
+      });
+    }
+  );
+});
+
+
+
+
+
+
+// UPDATE PRODUCT
+app.put("/api/products/:id", (req, res) => {
+  const { id } = req.params;
+
+  const {
+    name,
+    category,
+    subcategory,
+    price,
+    image,
+    availability,
+  } = req.body;
+
+  if (
+    !name ||
+    !category ||
+    price === undefined ||
+    !Number.isFinite(Number(price)) ||
+    Number(price) < 0 ||
+    !["Available", "Not Available"].includes(availability)
+  ) {
+    return res.status(400).json({
+      message: "Please provide valid product details",
+    });
+  }
+
+  const sql = `
+    UPDATE products
+    SET name = ?,
+        category = ?,
+        subcategory = ?,
+        price = ?,
+        image = ?,
+        availability = ?
+    WHERE id = ?
+  `;
+
+  db.query(
+    sql,
+    [
+      name.trim(),
+      category.trim(),
+      subcategory || "",
+      Number(price),
+      image || "",
+      availability,
+      id,
+    ],
+    (err, result) => {
+      if (err) {
+        console.log("Update Product Error:", err);
+        return res.status(500).json({
+          message: "Could not update product",
+        });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({
+          message: "Product not found",
+        });
+      }
+
+      res.json({
+        message: "Product updated successfully",
+      });
+    }
+  );
+});
+
+
+
+
+// DELETE PRODUCT
+app.delete("/api/products/:id", (req, res) => {
+  const { id } = req.params;
+
+  db.query(
+    "DELETE FROM products WHERE id = ?",
+    [id],
+    (err, result) => {
+      if (err) {
+        console.log("Delete Product Error:", err);
+
+        return res.status(500).json({
+          message: "Could not delete product",
+        });
+      }
+
+      if (result.affectedRows === 0) {
+        return res.status(404).json({
+          message: "Product not found",
+        });
+      }
+
+      res.json({
+        message: "Product deleted successfully",
+      });
+    }
+  );
 });
 
 

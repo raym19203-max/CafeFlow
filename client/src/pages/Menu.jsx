@@ -1,606 +1,282 @@
-// import "../styles/cart.css";
-// import menu from "../data/menu";
-// import { useState } from "react";
 
-// import Navbar from "../components/Navbar";
-// import Categories from "../components/Categories";
-// import MenuCard from "../components/MenuCard";
-
-// function Menu() {
-//   const [cart, setCart] = useState([]);
-//   const [showCart, setShowCart] = useState(false);
-
-//   const [selectedCategory, setSelectedCategory] = useState("All");
-//   const [searchTerm, setSearchTerm] = useState("");
-
-//   function addToCart(item) {
-//     const existingItem = cart.find(
-//       (cartItem) => cartItem.id === item.id
-//     );
-
-//     if (existingItem) {
-//       setCart(
-//         cart.map((cartItem) =>
-//           cartItem.id === item.id
-//             ? {
-//                 ...cartItem,
-//                 quantity: cartItem.quantity + 1,
-//               }
-//             : cartItem
-//         )
-//       );
-//     } else {
-//       setCart([
-//         ...cart,
-//         {
-//           ...item,
-//           quantity: 1,
-//         },
-//       ]);
-//     }
-//   }
-
-//   function removeFromCart(index) {
-//     setCart(cart.filter((_, i) => i !== index));
-//   }
-
-//   function increaseQuantity(id) {
-//     setCart(
-//       cart.map((item) =>
-//         item.id === id
-//           ? {
-//               ...item,
-//               quantity: item.quantity + 1,
-//             }
-//           : item
-//       )
-//     );
-//   }
-
-//   function decreaseQuantity(id) {
-//     setCart(
-//       cart
-//         .map((item) =>
-//           item.id === id
-//             ? {
-//                 ...item,
-//                 quantity: item.quantity - 1,
-//               }
-//             : item
-//         )
-//         .filter((item) => item.quantity > 0)
-//     );
-//   }
-
-//   const filteredMenu = menu.filter((item) => {
-//     const matchesCategory =
-//       selectedCategory === "All" ||
-//       item.category === selectedCategory;
-
-//     const matchesSearch = item.name
-//       .toLowerCase()
-//       .includes(searchTerm.toLowerCase());
-
-//     return matchesCategory && matchesSearch;
-//   });
-
-//   return (
-//     <>
-//       <Navbar
-//         cartCount={cart.length}
-//         onCartClick={() => setShowCart(true)}
-//       />
-
-//       {/* CART */}
-//       {showCart && (
-//         <div className="cart-drawer">
-
-//           <div className="cart-header">
-//             <h2>🛒 Your Cart</h2>
-
-//             <button
-//               className="close-btn"
-//               onClick={() => setShowCart(false)}
-//             >
-//               ✖
-//             </button>
-//           </div>
-
-//           {cart.length === 0 ? (
-//             <p>Your cart is empty.</p>
-//           ) : (
-//             <>
-//               {cart.map((item, index) => (
-//                 <div
-//                   className="cart-item"
-//                   key={index}
-//                 >
-
-//                   <h4>{item.name}</h4>
-
-//                   <p>
-//                     Rs. {item.price} × {item.quantity} ={" "}
-//                     <b>
-//                       Rs. {item.price * item.quantity}
-//                     </b>
-//                   </p>
-
-//                   <div className="quantity-box">
-
-//                     <button
-//                       onClick={() =>
-//                         decreaseQuantity(item.id)
-//                       }
-//                     >
-//                       -
-//                     </button>
-
-//                     <span>{item.quantity}</span>
-
-//                     <button
-//                       onClick={() =>
-//                         increaseQuantity(item.id)
-//                       }
-//                     >
-//                       +
-//                     </button>
-
-//                   </div>
-
-//                   <button
-//                     className="remove-btn"
-//                     onClick={() =>
-//                       removeFromCart(index)
-//                     }
-//                   >
-//                     Remove
-//                   </button>
-
-//                 </div>
-//               ))}
-
-//               <div className="checkout-section">
-
-//                 <h3 className="total">
-//                   Total: Rs.{" "}
-//                   {cart.reduce(
-//                     (sum, item) =>
-//                       sum + item.price * item.quantity,
-//                     0
-//                   )}
-//                 </h3>
-
-//               </div>
-//             </>
-//           )}
-
-//         </div>
-//       )}
-
-//       {/* MENU PAGE */}
-
-//       <div className="menu-page">
-
-//         <h2 className="menu-titles">
-//           Our Menu
-//         </h2>
-
-//         {/* SEARCH */}
-
-//         <div className="search-box">
-
-//           <span>🔍</span>
-
-//           <input
-//             type="text"
-//             placeholder="Search menu items..."
-//             value={searchTerm}
-//             onChange={(e) =>
-//               setSearchTerm(e.target.value)
-//             }
-//           />
-
-//         </div>
-
-//         {/* CATEGORIES */}
-
-//         <Categories
-//           selectedCategory={selectedCategory}
-//           onCategoryChange={setSelectedCategory}
-//         />
-
-//         {/* MENU CARDS */}
-
-//         <div className="menu-grid">
-
-//           {filteredMenu.length > 0 ? (
-
-//             filteredMenu.map((item) => (
-
-//               <MenuCard
-//                 key={item.id}
-//                 name={item.name}
-//                 price={item.price}
-//                 image={item.image}
-//                 onAdd={() => addToCart(item)}
-//               />
-
-//             ))
-
-//           ) : (
-
-//             <p className="no-results">
-//               No menu items found.
-//             </p>
-
-//           )}
-
-//         </div>
-
-//       </div>
-//     </>
-//   );
-// }
-
-// export default Menu;
-
-
-
-
-
-
-
-
-
-
-import "../styles/cart.css";
-import menu from "../data/menu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import menu from "../data/menu";
 import Navbar from "../components/Navbar";
 import Categories from "../components/Categories";
 import MenuCard from "../components/MenuCard";
-
 import { useCart } from "../context/CartContext";
 
+import "../styles/categories.css";
+import "../styles/cart.css";
+
 function Menu() {
-
   const navigate = useNavigate();
-
-  // ==========================================
-  // GLOBAL CART
-  // ==========================================
 
   const {
     cart,
     addToCart,
-    removeFromCart,
     increaseQuantity,
     decreaseQuantity,
+    removeItem,
   } = useCart();
 
-
-  // ==========================================
-  // CART DRAWER
-  // ==========================================
-
   const [showCart, setShowCart] = useState(false);
-
-
-  // ==========================================
-  // CATEGORY
-  // ==========================================
-
-  const [selectedCategory, setSelectedCategory] =
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSubcategory, setSelectedSubcategory] =
     useState("All");
+  const [selectedType, setSelectedType] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const foodSubcategories = [
+    "All",
+    "Momo",
+    "Pizza",
+    "Burger",
+    "Chowmein",
+    "Thukpa",
+    "Biryani",
+    "Pasta",
+    "Fried Rice",
+  ];
 
-  // ==========================================
-  // SEARCH
-  // ==========================================
-
-  const [searchTerm, setSearchTerm] =
-    useState("");
-
-
-  // ==========================================
-  // CART COUNT
-  // ==========================================
-
-  const cartCount = cart.reduce(
-    (sum, item) =>
-      sum + Number(item.quantity),
-    0
-  );
-
-
-  // ==========================================
-  // FILTER MENU
-  // ==========================================
+  function handleCategoryChange(category) {
+    setSelectedCategory(category);
+    setSelectedSubcategory("All");
+    setSelectedType("All");
+  }
 
   const filteredMenu = menu.filter((item) => {
-
     const matchesCategory =
       selectedCategory === "All" ||
       item.category === selectedCategory;
 
-    const matchesSearch =
-      item.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+    const matchesSubcategory =
+      selectedCategory !== "Food" ||
+      selectedSubcategory === "All" ||
+      item.subcategory === selectedSubcategory;
+
+    const matchesType =
+      selectedCategory !== "Food" ||
+      selectedType === "All" ||
+      item.type === selectedType;
+
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
 
     return (
       matchesCategory &&
+      matchesSubcategory &&
+      matchesType &&
       matchesSearch
     );
-
   });
 
-
-  // ==========================================
-  // TOTAL
-  // ==========================================
-
-  const total = cart.reduce(
-    (sum, item) =>
-      sum +
-      Number(item.price) *
-      Number(item.quantity),
+  const cartCount = cart.reduce(
+    (sum, item) => sum + Number(item.quantity || 0),
     0
   );
 
+  const cartTotal = cart.reduce(
+    (sum, item) =>
+      sum +
+      Number(item.price || 0) * Number(item.quantity || 0),
+    0
+  );
 
   return (
     <>
-      {/* =====================================
-          NAVBAR
-      ===================================== */}
-
       <Navbar
-        cartCount={cartCount}
-        onCartClick={() =>
-          setShowCart(true)
-        }
-      />
+         cartCount={cartCount}
+         onCartClick={() => setShowCart(true)}
+       />
 
-
-      {/* =====================================
-          CART DRAWER
-      ===================================== */}
-
-      {showCart && (
-
-        <div className="cart-drawer">
-
-          {/* CART HEADER */}
-
-          <div className="cart-header">
-
-            <h2>
-              🛒 Your Cart
-            </h2>
-
-            <button
-              className="close-btn"
-              onClick={() =>
-                setShowCart(false)
-              }
-            >
-              ✖
-            </button>
-
-          </div>
-
-
-          {/* EMPTY CART */}
-
-          {cart.length === 0 ? (
-
-            <p>
-              Your cart is empty.
-            </p>
-
-          ) : (
-
-            <>
-
-              {/* CART ITEMS */}
-
-              {cart.map((item) => (
-
-                <div
-                  className="cart-item"
-                  key={item.id}
-                >
-
-                  <h4>
-                    {item.name}
-                  </h4>
-
-
-                  <p>
-                    Rs. {item.price} ×{" "}
-                    {item.quantity} ={" "}
-                    <b>
-                      Rs.{" "}
-                      {Number(item.price) *
-                        Number(item.quantity)}
-                    </b>
-                  </p>
-
-
-                  {/* QUANTITY */}
-
-                  <div className="quantity-box">
-
-                    <button
-                      onClick={() =>
-                        decreaseQuantity(
-                          item.id
-                        )
-                      }
-                    >
-                      -
-                    </button>
-
-
-                    <span>
-                      {item.quantity}
-                    </span>
-
-
-                    <button
-                      onClick={() =>
-                        increaseQuantity(
-                          item.id
-                        )
-                      }
-                    >
-                      +
-                    </button>
-
-                  </div>
-
-
-                  {/* REMOVE */}
-
-                  <button
-                    className="remove-btn"
-                    onClick={() =>
-                      removeFromCart(
-                        item.id
-                      )
-                    }
-                  >
-                    Remove
-                  </button>
-
-                </div>
-
-              ))}
-
-
-              {/* =================================
-                  CHECKOUT SECTION
-              ================================= */}
-
-              <div className="checkout-section">
-
-                <h3 className="total">
-
-                  Total: Rs.{" "}
-                  {total}
-
-                </h3>
-
-
-                <button
-                  className="checkout-btn"
-                  onClick={() =>
-                    navigate("/checkout")
-                  }
-                >
-                  Proceed to Checkout
-                </button>
-
-              </div>
-
-            </>
-
-          )}
-
-        </div>
-
-      )}
-
-
-      {/* =====================================
-          MENU PAGE
-      ===================================== */}
-
-      <div className="menu-page">
-
-
-        {/* TITLE */}
-
-        <h2 className="menu-titles">
-          Our Menu
-        </h2>
-
-
-        {/* ===================================
-            SEARCH
-        =================================== */}
+      <main className="menu-page">
+        <h1 className="menu-titles">Our Menu</h1>
 
         <div className="search-box">
-
-          <span>
-            🔍
-          </span>
-
+          <span>🔍</span>
           <input
             type="text"
-            placeholder="Search menu items..."
+            placeholder="Search food and drinks..."
             value={searchTerm}
-            onChange={(e) =>
-              setSearchTerm(
-                e.target.value
-              )
+            onChange={(event) =>
+              setSearchTerm(event.target.value)
             }
           />
-
         </div>
 
-
-        {/* ===================================
-            CATEGORIES
-        =================================== */}
-
         <Categories
-          selectedCategory={
-            selectedCategory
-          }
-          onCategoryChange={
-            setSelectedCategory
-          }
+          selectedCategory={selectedCategory}
+          onCategoryChange={handleCategoryChange}
         />
 
+        {selectedCategory === "Food" && (
+          <>
+            <div className="category-list">
+              {foodSubcategories.map((subcategory) => (
+                <button
+                  type="button"
+                  key={subcategory}
+                  className={
+                    selectedSubcategory === subcategory
+                      ? "category-btn active"
+                      : "category-btn"
+                  }
+                  onClick={() => {
+                    setSelectedSubcategory(subcategory);
+                    setSelectedType("All");
+                  }}
+                >
+                  {subcategory}
+                </button>
+              ))}
+            </div>
 
-        {/* ===================================
-            MENU CARDS
-        =================================== */}
+            <div className="category-list">
+              {["All", "Veg", "Non-Veg"].map((type) => (
+                <button
+                  type="button"
+                  key={type}
+                  className={
+                    selectedType === type
+                      ? "category-btn active"
+                      : "category-btn"
+                  }
+                  onClick={() => setSelectedType(type)}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
 
         <div className="menu-grid">
-
           {filteredMenu.length > 0 ? (
-
             filteredMenu.map((item) => (
-
               <MenuCard
                 key={item.id}
                 name={item.name}
                 price={item.price}
                 image={item.image}
-                onAdd={() =>
-                  addToCart(item)
-                }
+                onAdd={() => addToCart(item)}
               />
-
             ))
-
           ) : (
-
             <p className="no-results">
               No menu items found.
             </p>
-
           )}
-
         </div>
+{/* 
+        <button
+          type="button"
+          className="cart-toggle-btn"
+          onClick={() => setShowCart(true)}
+        >
+          🛒 View Cart ({cartCount})
+        </button> */}
+        
+      </main>
 
-      </div>
+      {showCart && (
+        <>
+          <div
+            className="cart-overlay"
+            onClick={() => setShowCart(false)}
+          />
 
+          <section
+            className="cart-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Shopping cart"
+          >
+            <div className="cart-header">
+              <h2>🛒 Your Cart</h2>
+
+              <button
+                type="button"
+                className="close-btn"
+                onClick={() => setShowCart(false)}
+                aria-label="Close cart"
+              >
+                ✕
+              </button>
+            </div>
+
+            {cart.length === 0 ? (
+              <p>Your cart is empty.</p>
+            ) : (
+              <>
+                {cart.map((item) => (
+                  <div
+                    key={item.id}
+                    className="cart-item"
+                  >
+                    <h4>{item.name}</h4>
+
+                    <p>
+                      Rs. {item.price} × {item.quantity} = Rs.{" "}
+                      {Number(item.price) *
+                        Number(item.quantity)}
+                    </p>
+
+                    <div className="quantity-box">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          decreaseQuantity(item.id)
+                        }
+                        aria-label={`Decrease ${item.name} quantity`}
+                      >
+                        -
+                      </button>
+
+                      <span>{item.quantity}</span>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          increaseQuantity(item.id)
+                        }
+                        aria-label={`Increase ${item.name} quantity`}
+                      >
+                        +
+                      </button>
+                    </div>
+
+                    <button
+                      type="button"
+                      className="remove-btn"
+                      onClick={() => removeItem(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+
+                <div className="checkout-section">
+                  <h3 className="total">
+                    Total: Rs. {cartTotal}
+                  </h3>
+
+                  <button
+                    type="button"
+                    className="checkout-btn"
+                    onClick={() => navigate("/checkout")}
+                  >
+                    Proceed to Checkout
+                  </button>
+                </div>
+              </>
+            )}
+          </section>
+        </>
+      )}
     </>
   );
 }
