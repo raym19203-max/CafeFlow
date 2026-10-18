@@ -19,7 +19,7 @@ function Menu() {
 
   useEffect(() => {
     // fetch("http://localhost:5000/api/products")
-    fetch(`${window.location.protocol}//${window.location.hostname}:5000/api/products`)
+    fetch("https://cafeflow-api-y0yw.onrender.com/api/products")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load products");
