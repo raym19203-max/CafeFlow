@@ -22,7 +22,9 @@ db.connect((err) => {
   if (err) {
     console.error("MySQL connection failed:", err.message);
   } else {
-    console.log("MySQL Connected");
+    // console.log("MySQL Connected");
+    console.log("MySQL Connected successfully");
+    console.log("Database host:", process.env.DB_HOST);
   }
 });
 
@@ -34,21 +36,3 @@ module.exports = db;
 
 
 
-// const mysql = require("mysql2");
-
-// const db = mysql.createConnection({
-//   host: "localhost",
-//   user: "root",
-//   password: "Abc@123",
-//   database: "cafe",
-// });
-
-// db.connect((err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("MySQL Connected");
-//   }
-// });
-
-// module.exports = db;
