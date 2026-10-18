@@ -10,7 +10,8 @@ function Categories({ selectedCategory, onCategoryChange }) {
   ];
 
   return (
-    <div className="category-list">
+    // <div className="category-list">
+    <div className="main-category-list">  
       {categories.map((category) => (
         <button
           key={category.name}

@@ -33,6 +33,9 @@ import {
 
 import React from "react";
 
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
+
 
 function Admin() {
   
@@ -480,6 +483,91 @@ const filteredReportOrders = orders.filter((order) => {
   );
 });
 
+//  pdf report
+const downloadReportPDF = () => {
+  const doc = new jsPDF({ orientation: "landscape" });
+
+  doc.setFontSize(18);
+  doc.text("CafeFlow - Order Report", 14, 15);
+
+  autoTable(doc, {
+    startY: 22,
+    head: [[
+      "Order ID",
+      "Date & Time",
+      "Customer",
+      "Table",
+      "Phone",
+      "Total (Rs.)",
+      "Order Status",
+      "Payment Status",
+    ]],
+    body: filteredReportOrders.map((order) => [
+      `#${String(order.id ?? order.order_id ?? "").replace(/^#/, "")}`,
+      order.created_at
+        ? new Date(order.created_at).toLocaleString()
+        : "-",
+      order.customer_name ?? order.customer ?? order.name ?? "-",
+      order.table_number ?? order.table_no ?? order.tableNumber ?? "-",
+      order.phone ?? "-",
+      Number(order.total ?? 0).toLocaleString(),
+      order.status ?? "-",
+      order.payment_status ?? order.paymentStatus ?? "-",
+    ]),
+    styles: { fontSize: 8 },
+    headStyles: { fillColor: [25, 55, 80] },
+  });
+
+  doc.save("CafeFlow-Order-Report.pdf");
+};
+
+
+//csv report
+const downloadReportCSV = () => {
+  const headers = [
+    "Order ID",
+    "Date & Time",
+    "Customer",
+    "Table",
+    "Phone",
+    "Total (Rs.)",
+    "Order Status",
+    "Payment Status",
+  ];
+
+  const rows = filteredReportOrders.map((order) => [
+    `#${String(order.id ?? order.order_id ?? "").replace(/^#/, "")}`,
+    order.created_at
+      ? new Date(order.created_at).toLocaleString()
+      : "-",
+    order.customer_name ?? order.customer ?? order.name ?? "-",
+    order.table_number ?? order.table_no ?? order.tableNumber ?? "-",
+    order.phone ?? "-",
+    Number(order.total ?? 0),
+    order.status ?? "-",
+    order.payment_status ?? order.paymentStatus ?? "-",
+  ]);
+
+  const escapeCSV = (value) =>
+    `"${String(value).replace(/"/g, '""')}"`;
+
+  const csvContent = [headers, ...rows]
+    .map((row) => row.map(escapeCSV).join(","))
+    .join("\r\n");
+
+  const blob = new Blob(["\uFEFF" + csvContent], {
+    type: "text/csv;charset=utf-8;",
+  });
+
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "CafeFlow-Order-Report.csv";
+  link.click();
+
+  URL.revokeObjectURL(link.href);
+};
+
+
 const reportTotalPages = Math.max(
   1,
   Math.ceil(filteredReportOrders.length / reportPageSize)
@@ -766,10 +854,6 @@ const todaysRevenue = todaysOrders
 
   }
 
-
-
-
-
   // ==========================================
 
   // RETURN
@@ -812,8 +896,6 @@ const todaysRevenue = todaysOrders
     </div>
   </div>
 )}
-
-
 
       <button
         className="mobile-menu-btn"
@@ -904,16 +986,11 @@ const todaysRevenue = todaysOrders
 
       ===================================== */}
       
-      {/* <h1 className="admin-title">
-        Dashboard Overview
-      </h1>
-      <p className="admin-subtitle">
-        Manage your cafe orders and customer
-        messages
-      </p> */}
+    
 
 
-      {activeSection !== "reports" && (
+      {/* {activeSection !== "reports" && ( */}
+      {!["reports", "products", "messages"].includes(activeSection) && (  
         <>
           <h1 className="admin-title">
             Dashboard Overview
@@ -932,7 +1009,14 @@ const todaysRevenue = todaysOrders
       ===================================== */}
 
       {/* <div className="dashboard"> */}
-      <div className={`dashboard ${activeSection === "reports" ? "hide-report-cards" : ""}`}>
+      {/* <div className={`dashboard ${activeSection === "reports" ? "hide-report-cards" : ""}`}> */}
+      <div
+        className={`dashboard ${
+          ["reports", "products", "messages"].includes(activeSection)
+            ? "hide-report-cards"
+            : ""
+        }`}
+      >
         {/* Total Orders */}
 
         <div className="card">
@@ -1028,7 +1112,6 @@ const todaysRevenue = todaysOrders
 
       
 {/* ALL-TIME STATISTICS */}
-{/* <div className="summary-panels"> */}
 {activeSection === "dashboard" && (
  <div className="summary-panels">
   <div className="summary-panel">
@@ -1793,6 +1876,8 @@ const todaysRevenue = todaysOrders
 
       form.reset();
 
+      setEditingProduct(null);
+
       loadProducts();
 
     } catch (error) {
@@ -1872,7 +1957,7 @@ const todaysRevenue = todaysOrders
 
     name="image"
 
-    type="url"
+    type="text"
 
     placeholder="Image URL (optional)"
 
@@ -1940,12 +2025,26 @@ const todaysRevenue = todaysOrders
             <td>{product.availability}</td>
 
             <td>
-             <button
+             {/* <button
                 type="button"
-                onClick={() => setEditingProduct(product)}
+                onClick={() => {
+                  setEditingProduct(product);
+                }}
              >
                Edit
-             </button>
+             </button> */}
+             <button
+                type="button"
+                onClick={() => {
+                  setEditingProduct(product);
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                Edit
+              </button>
 
 
 
@@ -2140,10 +2239,13 @@ const todaysRevenue = todaysOrders
      )}
 
            {activeSection === "reports" && (
-        <div className="reports-section">
-          <h1>📊 Order Report</h1>
-          <p>View, search and download all past and today's orders.</p>
-
+        // <div className="reports-section">
+        <div className="reports-section reports-page">  
+           <div className="reports-sticky-header">
+              <h1>📊 Order Report</h1>
+              <p>View, search and download all past and today's orders.</p>
+            </div>
+        
           <div className="report-filters">
             <label>
               From Date
@@ -2208,8 +2310,13 @@ const todaysRevenue = todaysOrders
               />
             </label>
 
-            <button type="button">📄 Download Report (PDF)</button>
-            <button type="button">📊 Download (CSV)</button>
+            <button type="button" onClick={downloadReportPDF}>
+              📄 Download Report (PDF)
+            </button>
+
+            <button type="button" onClick={downloadReportCSV}>
+              📊 Download (CSV)
+            </button>
           </div>
 
           <div className="report-history">

@@ -132,11 +132,11 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-
     color: #333;
 
     font-size: 16px;
     font-weight: 600;
+    padding: 10px 12px;
 
     transition: 0.3s ease;
 }
@@ -219,11 +219,10 @@ body {
    MOBILE
 ============================== */
 
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
     nav {
         height: 60px;
-
         padding: 0 15px;
     }
 
@@ -232,11 +231,36 @@ body {
     }
 
     .nav-links {
-        gap: 15px;
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        background: #173D32;
+        border-top: 1px solid rgba(255, 248, 236, 0.18);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+        border-radius: 0 0 16px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .nav-links.open {
+        display: flex;
     }
 
     .nav-links a {
-        font-size: 13px;
+        font-size: 16px;
+        color: #FFF8EC;
+        padding: 10px 12px;
+        border-radius: 9px;
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+        background: #FF6500;
+        color: #FFFFFF;
+    }
     }
 
     .cart-btn {
@@ -247,5 +271,100 @@ body {
 
     body {
         padding-top: 60px;
+    }
+}
+
+
+
+/* Navbar action buttons */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+/* Hidden on desktop */
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: #173c32;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+/* Mobile navbar */
+@media (max-width: 768px) {
+    .navbar-actions {
+        gap: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        z-index: 1001;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 4px 0;
+    }
+}
+
+
+
+/* CafeFlow professional mobile menu */
+@media (max-width: 768px) {
+    .nav-links {
+        background: #fff8ec;
+        padding: 22px 20px;
+        border-top: 1px solid #f0e3d0;
+        box-shadow: 0 10px 24px rgba(36, 45, 35, 0.14);
+        border-radius: 0 0 16px 16px;
+    }
+
+    .nav-links a {
+        color: #214b3d;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 14px;
+        border-radius: 9px;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+        background: #ff6500;
+        color: #ffffff;
+        outline: none;
+    }
+
+    .menu-toggle {
+        color: #214b3d;
+    }
+}
+
+
+
+/* Compact mobile dropdown */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 10px;
+        padding: 14px 16px;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        box-sizing: border-box;
     }
 }

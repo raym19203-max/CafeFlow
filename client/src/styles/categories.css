@@ -1,30 +1,106 @@
-/* .categories{
-    text-align:center;
-    padding:40px 20px;
+
+/* Horizontally scrollable subcategories */
+.category-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 8px 4px 14px;
+  margin-bottom: 18px;
+
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #2f6655 transparent;
 }
 
-.category-list{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin-top:20px;
+.category-list .category-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
-.category-list button{
-    padding:12px 24px;
-    border:none;
-    border-radius:30px;
-    background:#ff6600;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:.3s;
+.category-list::-webkit-scrollbar {
+  height: 4px;
 }
 
-.category-list button:hover{
-    background:#e65100;
+.category-list::-webkit-scrollbar-thumb {
+  background: #2f6655;
+  border-radius: 10px;
 }
 
 
- */
+/* Main categories: normal wrapping, no horizontal scroll */
+.main-category-list {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* Subcategories: horizontal scrolling only */
+.category-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 4px 14px;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-list .category-btn {
+  flex: 0 0 auto;
+}
+
+
+/* Main categories: wrap normally */
+.main-category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  margin-bottom: 18px;
+}
+
+/* Only food subcategories scroll horizontally */
+.category-list {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 8px;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 8px 4px 12px;
+  margin: 8px 0 18px;
+
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.category-list .category-btn {
+  flex: 0 0 auto;
+}
+
+.category-list .category-btn {
+  flex: 0 0 auto;
+}

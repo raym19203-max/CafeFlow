@@ -1,8 +1,9 @@
 
-import { useState } from "react";
+// import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import menu from "../data/menu";
+// import menu from "../data/menu";
 import Navbar from "../components/Navbar";
 import Categories from "../components/Categories";
 import MenuCard from "../components/MenuCard";
@@ -13,6 +14,29 @@ import "../styles/cart.css";
 
 function Menu() {
   const navigate = useNavigate();
+  const [menu, setMenu] = useState([]);
+  const [productsLoading, setProductsLoading] = useState(true);
+
+  useEffect(() => {
+    // fetch("http://localhost:5000/api/products")
+    fetch(`${window.location.protocol}//${window.location.hostname}:5000/api/products`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load products");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMenu(Array.isArray(data) ? data : []);
+      })
+      .catch((error) => {
+        console.error("Product loading error:", error);
+        setMenu([]);
+      })
+      .finally(() => {
+        setProductsLoading(false);
+      });
+  }, []);
 
   const {
     cart,
@@ -108,10 +132,16 @@ function Menu() {
           />
         </div>
 
-        <Categories
+        {/* <Categories
           selectedCategory={selectedCategory}
           onCategoryChange={handleCategoryChange}
-        />
+        /> */}
+        <div className="main-category-list">
+          <Categories
+            selectedCategory={selectedCategory}
+            onCategoryChange={handleCategoryChange}
+          />
+        </div>
 
         {selectedCategory === "Food" && (
           <>
@@ -135,6 +165,7 @@ function Menu() {
               ))}
             </div>
 
+{/* 
             <div className="category-list">
               {["All", "Veg", "Non-Veg"].map((type) => (
                 <button
@@ -150,7 +181,7 @@ function Menu() {
                   {type}
                 </button>
               ))}
-            </div>
+            </div> */}
           </>
         )}
 
@@ -162,6 +193,7 @@ function Menu() {
                 name={item.name}
                 price={item.price}
                 image={item.image}
+                availability={item.availability}
                 onAdd={() => addToCart(item)}
               />
             ))
