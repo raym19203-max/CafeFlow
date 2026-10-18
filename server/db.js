@@ -1,18 +1,47 @@
+
 const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "Abc@123",
-  database: "cafe",
+  host: process.env.DB_HOST || "localhost",
+  port: Number(process.env.DB_PORT) || 3306,
+  user: process.env.DB_USER || "root",
+  password: process.env.DB_PASSWORD || "",
+  database: process.env.DB_NAME || "cafe",
+  ssl: process.env.DB_HOST
+    ? { rejectUnauthorized: true }
+    : undefined
 });
 
 db.connect((err) => {
   if (err) {
-    console.log(err);
+    console.error("MySQL connection failed:", err.message);
   } else {
     console.log("MySQL Connected");
   }
 });
 
 module.exports = db;
+
+
+
+
+
+
+// const mysql = require("mysql2");
+
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "Abc@123",
+//   database: "cafe",
+// });
+
+// db.connect((err) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("MySQL Connected");
+//   }
+// });
+
+// module.exports = db;
