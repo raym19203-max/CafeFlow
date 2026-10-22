@@ -11,7 +11,9 @@ function MenuCard({ name, price, image, onAdd, availability }) {
       <div className="menu-card-image">
         {image ? (
           <img
-            src={image}
+            // src={`/${image}`}
+            // src={image?.startsWith("/") ? image : `/$DIL2`}
+            src={image?.startsWith("/") ? image : `/${image || ""}`}
             alt={name || "Menu item"}
             onError={(event) => {
               event.currentTarget.style.display = "none";

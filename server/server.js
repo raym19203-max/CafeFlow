@@ -1,3 +1,4 @@
+require("dotenv").config();
 console.log("THIS IS MY NEW SERVER");
 
 const express = require("express");
