@@ -126,7 +126,8 @@ function Checkout() {
 
         const response =
           await fetch(
-            "http://localhost:5000/api/orders",
+            // "http://localhost:5000/api/orders",
+            "https://cafeflow-api-y0yw.onrender.com/api/orders",
             {
               method: "POST",
 
@@ -192,7 +193,8 @@ function Checkout() {
 
         const response =
           await fetch(
-            "http://localhost:5000/api/esewa/initiate",
+            // "http://localhost:5000/api/esewa/initiate",
+            "https://cafeflow-api-y0yw.onrender.com/api/esewa/initiate",
             {
               method: "POST",
 
