@@ -125,7 +125,8 @@ function Admin() {
 
   function loadProducts() {
 
-    fetch("http://localhost:5000/api/products")
+    fetch("https://cafeflow-api-y0yw.onrender.com/api/products")
+    // fetch("/api/products")
 
       .then((res) => {
 
@@ -158,7 +159,7 @@ function Admin() {
 
   
 function loadOrders() {
-  fetch("http://localhost:5000/api/orders")
+  fetch("https://cafeflow-api-y0yw.onrender.com/api/orders")
     .then((res) => res.json())
     .then((data) => {
       const parsedOrders = data.map((order) => {
@@ -178,6 +179,7 @@ function loadOrders() {
         };
       });
 
+      console.log("Orders received from API:", parsedOrders);
       setOrders(parsedOrders);
     })
     .catch((err) => {
@@ -194,13 +196,15 @@ function loadOrders() {
 
   function loadMessages() {
 
-    fetch("http://localhost:5000/api/contact")
+    // fetch("https://cafeflow-api-y0yw.onrender.com/api/contact")
+    fetch(`${import.meta.env.VITE_API_URL}/api/contact`)
 
       .then((res) => res.json())
 
       .then((data) => {
 
-        setMessages(data);
+        // setMessages(data);
+        setMessages(Array.isArray(data) ? data : []);
 
       })
 
@@ -658,7 +662,7 @@ const todaysRevenue = todaysOrders
 
     fetch(
 
-      `http://localhost:5000/api/orders/${id}`,
+      `https://cafeflow-api-y0yw.onrender.com/api/orders/${id}`,
 
       {
 
@@ -720,7 +724,7 @@ const todaysRevenue = todaysOrders
 
     fetch(
 
-      `http://localhost:5000/api/orders/${id}/payment`,
+      `https://cafeflow-api-y0yw.onrender.com/api/orders/${id}/payment`,
 
       {
 
@@ -1849,8 +1853,8 @@ const todaysRevenue = todaysOrders
 
       const response = await fetch(
          editingProduct
-         ? `http://localhost:5000/api/products/${editingProduct.id}`
-         : "http://localhost:5000/api/products",
+         ? `https://cafeflow-api-y0yw.onrender.com/api/products/${editingProduct.id}`
+         : "https://cafeflow-api-y0yw.onrender.com/api/products",
        {
          method: editingProduct ? "PUT" : "POST",
          headers: {
@@ -2055,7 +2059,7 @@ const todaysRevenue = todaysOrders
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/products/${product.id}`,
+        `https://cafeflow-api-y0yw.onrender.com/api/products/${product.id}`,
         {
           method: "DELETE",
         }
