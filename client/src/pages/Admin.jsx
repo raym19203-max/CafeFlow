@@ -928,7 +928,11 @@ const todaysRevenue = todaysOrders
 
         
           <button
-            onClick={() => setActiveSection("todayOrders")}
+            onClick={() => { 
+              setActiveSection("todayOrders");
+              setSidebarOpen(false);
+
+            }}
           >
             🛒 Today's Orders
           </button>
